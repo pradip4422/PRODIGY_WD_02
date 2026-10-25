@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch | Prodigy InfoTech Task 02</title>
+  <meta name="description" content="A stopwatch with lap history built with HTML, CSS and vanilla JavaScript.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+
+    <!-- Heading -->
+    <header class="header">
+      <h1>STOPWATCH</h1>
+      <p class="subtitle">Prodigy InfoTech | Web Development Task 02</p>
+    </header>
+
+    <!-- Timer display + control buttons -->
+    <section class="card" aria-label="Stopwatch controls">
+      <div class="display" id="display" role="timer" aria-live="off">
+        <span id="time">00:00:00</span><span class="ms" id="ms">.000</span>
+      </div>
+
+      <div class="controls">
+        <button type="button" id="startBtn" class="btn btn-start">Start</button>
+        <button type="button" id="pauseBtn" class="btn btn-pause" disabled>Pause</button>
+        <button type="button" id="lapBtn" class="btn btn-lap" disabled>Lap</button>
+        <button type="button" id="resetBtn" class="btn btn-reset" disabled>Reset</button>
+      </div>
+    </section>
+
+    <!-- Lap history -->
+    <section class="card" aria-labelledby="lapsTitle">
+      <div class="laps-head">
+        <h2 id="lapsTitle">Lap history</h2>
+        <button type="button" id="clearBtn" class="btn btn-ghost" disabled>Clear Laps</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Lap</th>
+              <th scope="col">Lap time</th>
+              <th scope="col">Total time</th>
+            </tr>
+          </thead>
+          <tbody id="lapBody"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="emptyMsg">No laps yet. Press Lap while the stopwatch is running.</p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

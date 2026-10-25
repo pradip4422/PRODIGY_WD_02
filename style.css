@@ -1,0 +1,101 @@
+/* ===== Variables ===== */
+:root {
+  --bg: #0b1220;
+  --card: #111b30;
+  --border: #223152;
+  --text: #e8ecf8;
+  --muted: #a3b0cc;
+  --blue: #2f5de8;
+  --purple: #7c4dff;
+  --danger: #e5484d;
+}
+
+/* ===== Base ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 20% 0%, #1a2a5c 0%, transparent 45%),
+              radial-gradient(circle at 90% 100%, #2b1a5c 0%, transparent 45%),
+              var(--bg);
+  background-attachment: fixed;
+}
+:focus-visible { outline: 3px solid #9db4ff; outline-offset: 3px; }
+
+.app { max-width: 640px; margin: 0 auto; padding: 32px 16px 48px; }
+
+/* ===== Header ===== */
+.header { text-align: center; margin-bottom: 24px; }
+h1 { font-size: clamp(1.8rem, 6vw, 2.6rem); letter-spacing: .25em; }
+.subtitle { margin-top: 6px; color: var(--muted); font-size: clamp(.9rem, 3vw, 1rem); }
+
+/* ===== Cards ===== */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+/* ===== Timer display ===== */
+.display {
+  text-align: center;
+  font-size: clamp(2.2rem, 11vw, 4.5rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums; /* digits keep equal width, no jitter */
+  letter-spacing: .02em;
+  padding: 24px 8px;
+  border-radius: 16px;
+  background: #0b1427;
+  border: 1px solid var(--border);
+}
+.ms { font-size: .55em; color: #9db4ff; }
+
+/* ===== Buttons ===== */
+.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+.btn {
+  padding: 14px 20px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s, background-color .2s, border-color .2s;
+}
+.btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0, 0, 0, .4); }
+.btn:active:not(:disabled) { transform: translateY(0); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.btn-start { background: var(--blue); }
+.btn-start:hover:not(:disabled) { background: #3d6bff; }
+.btn-pause { background: var(--purple); }
+.btn-pause:hover:not(:disabled) { background: #8f66ff; }
+.btn-lap { background: transparent; border-color: #6f8cff; }
+.btn-lap:hover:not(:disabled) { background: rgba(111, 140, 255, .15); }
+.btn-reset { background: transparent; border-color: var(--danger); }
+.btn-reset:hover:not(:disabled) { background: rgba(229, 72, 77, .15); }
+.btn-ghost { background: transparent; border-color: var(--border); padding: 8px 16px; font-size: .9rem; }
+.btn-ghost:hover:not(:disabled) { border-color: #6f8cff; }
+
+/* ===== Lap history ===== */
+.laps-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; gap: 12px; }
+h2 { font-size: 1.2rem; }
+.table-wrap { max-height: 320px; overflow: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { padding: 10px 8px; text-align: left; border-bottom: 1px solid var(--border); font-size: clamp(.8rem, 3.2vw, 1rem); }
+th { position: sticky; top: 0; background: var(--card); color: var(--muted); font-weight: 600; }
+tbody tr:first-child td { color: #9db4ff; font-weight: 600; } /* newest lap */
+.empty { color: var(--muted); text-align: center; padding: 16px 0 4px; }
+
+/* ===== Responsive ===== */
+@media (min-width: 560px) {
+  .controls { grid-template-columns: repeat(4, 1fr); }
+  .card { padding: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

@@ -34,7 +34,7 @@ PRODIGY_WD_02/
 1. Push the project to a public repository named `PRODIGY_WD_02`.
 2. Go to Settings, then Pages.
 3. Under Source, choose the `main` branch and the `/ (root)` folder, then click Save.
-4. After 1-2 minutes, the site is live at `https://YOUR-USERNAME.github.io/PRODIGY_WD_02/`.
+4. After 1-2 minutes, the site is live at `https://pradip4422.github.io/PRODIGY_WD_02/`.
 
 ## Author
-Your Name - Web Development Intern, Prodigy InfoTech
+pradip waghmode - Web Development Intern, Prodigy InfoTech
